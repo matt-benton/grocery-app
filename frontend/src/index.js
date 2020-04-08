@@ -1,14 +1,25 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import "./index.css"
-import * as serviceWorker from "./serviceWorker"
-import Router from "./components/Router"
+import React from 'react'
+import ReactDOM from 'react-dom'
+import ApolloClient from 'apollo-boost'
+import { ApolloProvider } from '@apollo/react-hooks'
+import './index.css'
+import * as serviceWorker from './serviceWorker'
+import App from './App.js'
+
+const client = new ApolloClient({
+    uri: 'http://127.0.0.1:8000/graphql',
+    headers: {
+        mode: 'no-cors',
+    },
+})
 
 ReactDOM.render(
     <React.StrictMode>
-        <Router />
+        <ApolloProvider client={client}>
+            <App />
+        </ApolloProvider>
     </React.StrictMode>,
-    document.getElementById("root"),
+    document.getElementById('root'),
 )
 
 // If you want your app to work offline and load faster, you can change

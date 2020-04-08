@@ -6,14 +6,17 @@ scalar DateTime
 scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 
 type Query {
-    users: [User!]! @paginate(defaultCount: 10)
+    users: [User!]! @all
     user(id: ID @eq): User @find
 }
 
 type User {
     id: ID!
-    name: String!
     email: String!
     created_at: DateTime!
     updated_at: DateTime!
+}
+
+type Mutation {
+    createUser(email: String!, password: String!): User! @create
 }

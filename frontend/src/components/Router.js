@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom"
 import Welcome from "../pages/welcome"
 import SignUp from "../pages/signup"
 import SignIn from "../pages/signin"
-import App from "../App"
+import Home from "../pages/home"
 import { isAuthenticated } from "../auth"
 
 const Router = () => (
@@ -13,7 +13,7 @@ const Router = () => (
             <Route path="/signup" component={SignUp} />
             <Route path="/signin" component={SignIn} />
             <Route path="/home">
-                {isAuthenticated() ? <App /> : <Redirect to="/" />}
+                {isAuthenticated() ? <Home /> : <Redirect to="/" />}
             </Route>
             <Route path="*">
                 <Redirect to="/" />

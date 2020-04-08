@@ -1,6 +1,7 @@
 import React from "react"
 import logo from "./logo.svg"
 import "./App.css"
+import Router from "./components/Router"
 
 class App extends React.Component {
     state = {
@@ -12,7 +13,7 @@ class App extends React.Component {
     }
 
     render() {
-        return <div>Home!!!</div>
+        return <Router />
     }
 }
 
